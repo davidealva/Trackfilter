@@ -4,6 +4,16 @@
   <%= hidden_field_tag 'plan', params[:plan] %>
 
   <div class="field form-group">
+    <%= f.label :username, 'Enter a username (no spaces)' %>
+    <%= f.text_field :username, class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label 'Account Type?' %>
+    <%= f.select :acct_type, ['Artist', 'Label'], class: 'form-control' %>
+  </div>
+
+  <div class="field form-group">
     <%= f.label :email %>
     <%= f.email_field :email, class: 'form-control' %>
   </div>
@@ -14,11 +24,6 @@
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %>
     <%= f.password_field :password, class: 'form-control' %>
-  </div>
-
-  <div class="field form-group">
-    <%= f.label 'Account Type?' %>
-    <%= f.select :acct_type, ['Artist', 'Label'], class: 'form-control' %>
   </div>
 
   <div class="field form-group">

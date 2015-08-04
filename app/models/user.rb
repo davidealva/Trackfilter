@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
 
   belongs_to :plan
   has_one :profile
+  attr_accessor :stripe_card_token
 
   before_save :create_username
   after_create :create_profile 
@@ -18,6 +19,14 @@ class User < ActiveRecord::Base
   def create_profile
     self.build_profile
     self.profile.save
+  end
+
+  def save_with_payment
+    if valid? 
+      customer = Stripe::Customer.create(description: email, plan: plan_id, card: stripe_card_token)
+      self.stripe_customer_token = customer.id
+      save!
+    end
   end
 
   private
