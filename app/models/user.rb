@@ -5,4 +5,17 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   belongs_to :plan
+  has_one :profile
+
+  before_save :create_username
+
+  def to_param
+    username
+  end
+
+  private
+
+	  def create_username
+	    self.username = username.downcase
+	  end
 end
