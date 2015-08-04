@@ -29,7 +29,7 @@ class ProfilesController < ApplicationController
 		@profile = @user.profile 
 		if @profile.update_attributes(profile_params)
 			flash[:success] = "Your profile has been updated"
-			redirect_to user_path(params[:user_id])
+			redirect_to artist_path(current_user)
 		else
 			render action: :edit
 		end
@@ -38,7 +38,7 @@ class ProfilesController < ApplicationController
 
 	private
 		def profile_params
-			params.require(:profile).permit(:first_name, :last_name, :title, :phone_number, :contact_email, :description, :avatar)
+			params.require(:profile).permit(:first_name, :last_name, :profile_name, :city, :country, :genre, :bio, :manager, :manager_email, :manager_phone, :avatar)
 		end
 
 

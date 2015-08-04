@@ -1,0 +1,67 @@
+<%= form_for @profile, url: user_profile_path, :html => { :multipart => true } do |f| %>
+
+	<div class="row">
+		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+			<div class="form-group">
+				<%= f.label :avatar, 'Image (min 500x500px)' %>
+				<%= f.file_field :avatar %>
+			</div>
+
+			<div class="form-group">
+				<%= f.label :profile_name %>
+				<%= f.text_field :profile_name, class: 'form-control' %>
+			</div>
+
+			<div class="form-group">
+				<%= f.label :first_name %>
+				<%= f.text_field :first_name, class: 'form-control' %> 
+			</div>
+
+			<div class="form-group">
+				<%= f.label :last_name %>
+				<%= f.text_field :last_name, class: 'form-control' %> 
+			</div>
+
+			<div class="form-group">
+				<%= f.label :city %>
+				<%= f.text_field :city, class: 'form-control' %> 
+			</div>
+
+			<div class="form-group">
+				<%= f.label :country %>
+				<%= f.text_field :country, class: 'form-control' %> 
+			</div>
+		</div>
+
+		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+			<div class="form-group">
+				<%= f.label :genre %>
+				<%= f.text_field :genre, class: 'form-control' %> 
+			</div>
+
+			<div class="form-group">
+				<%= f.label :bio %>
+				<%= f.text_area :bio, class: 'form-control' %> 
+			</div>
+
+			<div class="form-group">
+				<%= f.label :manager %>
+				<%= f.text_field :manager, class: 'form-control' %> 
+			</div>
+
+			<div class="form-group">
+				<%= f.label :manager_email %>
+				<%= f.text_field :manager_email, class: 'form-control' %> 
+			</div>
+
+			<div class="form-group">
+				<%= f.label :manager_phone %>
+				<%= f.text_field :manager_phone, class: 'form-control' %> 
+			</div>
+
+			<div class="form-group">
+				<%= f.submit 'Update Profile', class: 'btn btn-primary' %>
+			</div>
+		</div>
+	</div>
+	<% end %>

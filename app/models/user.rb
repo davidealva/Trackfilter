@@ -9,9 +9,15 @@ class User < ActiveRecord::Base
   has_one :profile
 
   before_save :create_username
+  after_create :create_profile 
 
   def to_param
     username
+  end
+
+  def create_profile
+    self.build_profile
+    self.profile.save
   end
 
   private

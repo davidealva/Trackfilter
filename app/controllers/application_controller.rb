@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 
 	def after_sign_in_path_for(resource_or_scope)
 	  if resource.sign_in_count == 1
-	      artist_path(current_user)
+	      edit_user_profile_path(current_user[:id])
 	  else
 	     root_path
 	  end

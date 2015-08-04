@@ -26,6 +26,11 @@
     <%= f.password_field :password_confirmation, class: 'form-control', autocomplete: "off" %>
   </div>
 
+  <div class="field form-group">
+    <%= f.label 'Account Type?' %>
+    <%= f.select :acct_type, ['Artist', 'Label'], class: 'form-control' %>
+  </div>
+
   <div class="actions form-group">
     <%= f.submit "Sign up", class: 'btn btn-success' %>
   </div>
