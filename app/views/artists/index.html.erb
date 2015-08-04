@@ -1,7 +1,15 @@
-<ul>
-	<li>
-		<% @artists.each do |artist| %>
-			<p><%= artist.username %></p>
-		<% end %>	
-	</li>
-</ul>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+		<h1>Artist Index</h1>
+			<ul>
+				<li>
+					<% @artists.each do |artist| %>
+						<h2><%= link_to artist.username, artist_path(artist) %></h2>
+					<% end %>	
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
