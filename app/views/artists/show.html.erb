@@ -1,13 +1,11 @@
-
-<div class="container">
-	<div class="row">
-		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-			<%= image_tag @artist.profile.avatar.url(:medium) %>
-		</div>
-		<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 col-md-1-offset">
-			<h1><%= @artist.artist.artist_name %></h1>
-			<h4><%= @artist.profile.city %>, <%= @artist.profile.country %> </h4>
-			<h4><%= @artist.profile.genre %></h4>
-		</div>
+<div class="row">
+	<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+		<%= image_tag @artist.profile.avatar.url(:medium) %>
+	</div>
+	<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 col-md-1-offset">
+		<h1><%= @artist.artist.artist_name %></h1>
+		<h4><%= @artist.profile.city %>, <%= @artist.profile.country %> </h4>
+		<h4><%= @artist.profile.genre %></h4>
 	</div>
 </div>
+

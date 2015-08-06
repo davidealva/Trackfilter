@@ -1,0 +1,14 @@
+<div class="row">
+	<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+	<h1>Releases Index</h1>
+		<ul>
+			<% @releases.each do |release| %>
+				<li>	
+					<h2><%= link_to release.title, release_path(release) %></h2>
+				</li>
+			<% end %>	
+		</ul>
+	</div>
+</div>
+
+
