@@ -18,7 +18,7 @@ class ProfilesController < ApplicationController
 		@artist = @user.artist
 		if @profile.update_attributes(profile_params) && @artist.update_attributes(artist_params)
 			flash[:success] = "Your profile has been updated"
-			redirect_to artist_path(current_user)
+			redirect_to static_artist_path(current_user)
 		else
 			render action: :edit
 		end

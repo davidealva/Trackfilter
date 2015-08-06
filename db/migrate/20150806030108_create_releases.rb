@@ -4,6 +4,7 @@ class CreateReleases < ActiveRecord::Migration
     	t.integer :artist_id
     	t.string :title
     	t.text :description
+      t.float :price
       t.string :credits
     	t.string :publisher_name
     	t.string :society

@@ -4,6 +4,7 @@ class CreateTracks < ActiveRecord::Migration
     	t.integer :release_id
     	t.string :title
     	t.string :remixer
+    	t.float :price
 
       t.timestamps null: false
     end

@@ -11,7 +11,7 @@ class ReleasesController < ApplicationController
 	end
 
 	def new
-		@user = User.find(params[:user_id])
+		@user = User.find_by_username(params[:username])
 		@release = @user.artist.releases.build
 		@release.save
 	end
@@ -31,7 +31,7 @@ class ReleasesController < ApplicationController
 	private
 	
 		def only_current_user
-			@user = User.find(params[:user_id])
+			@user = User.find_by_username(params[:username])
 			redirect_to(root_url) unless @user == current_user
 		end
 
