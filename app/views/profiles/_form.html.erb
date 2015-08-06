@@ -7,10 +7,14 @@
 				<%= f.file_field :avatar %>
 			</div>
 
-			<div class="form-group">
-				<%= f.label :profile_name %>
-				<%= f.text_field :profile_name, class: 'form-control' %>
-			</div>
+			<% if @user.acct_type == 'Artist' %>
+				<%= form_for @artist do |f| %>
+					<div class="form-group">
+						<%= f.label :artist_name %>
+						<%= f.text_field :artist_name, class: 'form-control' %>
+					</div>
+				<% end %>
+			<% end %>
 
 			<div class="form-group">
 				<%= f.label :first_name %>

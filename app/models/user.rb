@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
 
   belongs_to :plan
   has_one :profile
+  has_one :artist
   attr_accessor :stripe_card_token
 
   before_save :create_username
@@ -19,6 +20,10 @@ class User < ActiveRecord::Base
   def create_profile
     self.build_profile
     self.profile.save
+    if self.acct_type == 'Artist'
+      self.build_artist
+      self.artist.save 
+    end
   end
 
   def save_with_payment

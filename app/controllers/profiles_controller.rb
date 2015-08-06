@@ -9,12 +9,14 @@ class ProfilesController < ApplicationController
 	def edit
 		@user = User.find(params[:user_id])
 		@profile = @user.profile
+		@artist = @user.artist
 	end
 
 	def update
 		@user = User.find(params[:user_id])
 		@profile = @user.profile 
-		if @profile.update_attributes(profile_params)
+		@artist = @user.artist
+		if @profile.update_attributes(profile_params) && @artist.update_attributes(artist_params)
 			flash[:success] = "Your profile has been updated"
 			redirect_to artist_path(current_user)
 		else
@@ -25,9 +27,12 @@ class ProfilesController < ApplicationController
 
 	private
 		def profile_params
-			params.require(:profile).permit(:first_name, :last_name, :profile_name, :city, :country, :genre, :bio, :manager, :manager_email, :manager_phone, :avatar)
+			params.require(:profile).permit(:first_name, :last_name, :city, :country, :genre, :bio, :manager, :manager_email, :manager_phone, :avatar)
 		end
 
+		def artist_params
+			params.require(:artist).permit(:artist_name)
+		end
 
 		def only_current_user
 			@user = User.find(params[:user_id])
