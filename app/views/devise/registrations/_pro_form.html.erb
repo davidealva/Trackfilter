@@ -4,13 +4,13 @@
   <%= hidden_field_tag 'plan', params[:plan] %>
 
   <div class="field form-group">
-    <%= f.label :username, 'Enter a username (no spaces)' %>
-    <%= f.text_field :username, class: 'form-control' %>
+    <%= f.label 'Account Type?' %>
+    <%= f.select(:acct_type, options_for_select(['Artist', 'Label']), {}, { :class => 'form-control'}) %>
   </div>
 
   <div class="field form-group">
-    <%= f.label 'Account Type?' %>
-    <%= f.select :acct_type, ['Artist', 'Label'], class: 'form-control' %>
+    <%= f.label :username, 'Enter a username (no spaces)' %>
+    <%= f.text_field :username, class: 'form-control' %>
   </div>
 
   <div class="field form-group">
