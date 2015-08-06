@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
 
   devise_for :users, controllers: { registrations: 'users/registrations'}
-  resources :artists
+  resources :artists, except: :show
   resources :releases 
   
   get '/track/:id', to: 'tracks#show'
+  get ':username', to: 'artists#show', as: 'static_artist'
+
   
   resources :users do
     resource :profile

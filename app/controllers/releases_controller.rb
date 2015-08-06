@@ -11,7 +11,9 @@ class ReleasesController < ApplicationController
 	end
 
 	def new
-
+		@user = User.find(params[:user_id])
+		@release = @user.artist.releases.build
+		@release.save
 	end
 
 	def create

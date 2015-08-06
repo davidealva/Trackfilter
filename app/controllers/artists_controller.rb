@@ -7,7 +7,7 @@ class ArtistsController < ApplicationController
 	end
 
 	def show
-		@artist = User.find_by_username(params[:id])
+		@artist = User.find_by_username(params[:username])
 	end
 
 
