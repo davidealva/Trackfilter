@@ -8,4 +8,8 @@ class TracksController < ApplicationController
 		
 	end
 
+	def new
+
+	end
+
 end

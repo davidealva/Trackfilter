@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   resources :artists
   get ':username', to: 'artists#show', as: 'static_artist' 
   scope path: '/:username', as: 'artist' do
-    resources :releases
-    resources :tracks
+    resources :releases 
+    resource :tracks
   end
 
   #refactor this route
