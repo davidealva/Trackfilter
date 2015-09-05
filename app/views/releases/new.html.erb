@@ -1,8 +1,50 @@
 <div class="row">
 	<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
 		Add a new release
-		
 
-		<%= link_to 'Add Track', new_artist_tracks_path(@user), class: 'btn btn-warning' %>
-	</div>
+		<!-- <%= link_to 'Add Track', new_artist_tracks_path(@user), class: 'btn btn-warning' %> -->
+
+		<%= form_for @release, url: artist_releases_path, :html => { :multipart => true } do |f|  %>
+			<div class="row">
+				<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+
+					<div class="form-group">
+						<%= f.label :title %>
+						<%= f.text_field :title, class: 'form-control' %> 
+					</div>
+
+					<div class="form-group">
+						<%= f.label :description %>
+						<%= f.text_field :description, class: 'form-control' %> 
+					</div>
+
+					<div class="form-group">
+						<%= f.label :price %>
+						<%= f.text_field :price, class: 'form-control' %> 
+					</div>
+
+					<div class="form-group">
+						<%= f.label :credits %>
+						<%= f.text_field :credits, class: 'form-control' %> 
+					</div>
+
+					<div class="form-group">
+						<%= f.label :publisher_name %>
+						<%= f.text_field :publisher_name, class: 'form-control' %> 
+					</div>
+
+					<div class="form-group">
+						<%= f.label :society %>
+						<%= f.text_field :society, class: 'form-control' %> 
+					</div>
+
+					<div class="form-group">
+						<%= f.label :release_date %>
+						<%= f.date_select :release_date, class: 'form-control' %> 
+					</div>
+
+				</div>
+			</div>
+		<% end %>
+
 </div>

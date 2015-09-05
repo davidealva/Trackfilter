@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :artists
   get ':username', to: 'artists#show', as: 'static_artist' 
   scope path: '/:username', as: 'artist' do
-    resources :releases 
+    resource :releases 
     resource :tracks
   end
 
@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :users do
     resource :profile
   end
+
 
   get '/about' => 'pages#about'
   root 'pages#home'
