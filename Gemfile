@@ -15,6 +15,9 @@ gem 'devise'
 gem "paperclip", "~> 4.3"
 gem 'stripe'
 gem "figaro"
+gem 'simple_form'
+gem 'cocoon'
+
 
 group :production do 
 	gem 'pg'

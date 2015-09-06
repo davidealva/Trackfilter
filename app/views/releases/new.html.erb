@@ -1,50 +1,37 @@
 <div class="row">
-	<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-		Add a new release
-
+	<div class="col-md-10 col-md-offset-1">
 		<!-- <%= link_to 'Add Track', new_artist_tracks_path(@user), class: 'btn btn-warning' %> -->
 
-		<%= form_for @release, url: artist_releases_path, :html => { :multipart => true } do |f|  %>
+		<%= simple_form_for @release, url: artist_releases_path, html: { class: 'form-horizontal' } do |f|  %>
+		
 			<div class="row">
-				<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+				<div class="col-md-4">
+					<h3>Create a new release</h3>
+						<%= f.input :title %> 
+						<%= f.input :description %> 
+						<%= f.input :price, as: :decimal %> 
+						<%= f.input :credits %> 
+						<%= f.input :publisher_name %> 
+						<%= f.input :society, hint: 'i.e. ASCAP, BMI, GEMA' %> 
+						<%= f.input :release_date, as: :date, start_year: Date.today.year %> 
+				</div>
 
-					<div class="form-group">
-						<%= f.label :title %>
-						<%= f.text_field :title, class: 'form-control' %> 
-					</div>
+				<div class="col-md-4 col-md-offset-2">
+					<h3>Add Tracks</h3>
+					<div id="tracks">
+				    <%= f.simple_fields_for :tracks do |track| %>
+				      <%= render 'track_fields', f: track %>
+				    <% end %>
+				  </div>
+					<div class="links">
+			      <%= link_to_add_association 'add track', f, :tracks %>
+			    </div>
 
-					<div class="form-group">
-						<%= f.label :description %>
-						<%= f.text_field :description, class: 'form-control' %> 
-					</div>
-
-					<div class="form-group">
-						<%= f.label :price %>
-						<%= f.text_field :price, class: 'form-control' %> 
-					</div>
-
-					<div class="form-group">
-						<%= f.label :credits %>
-						<%= f.text_field :credits, class: 'form-control' %> 
-					</div>
-
-					<div class="form-group">
-						<%= f.label :publisher_name %>
-						<%= f.text_field :publisher_name, class: 'form-control' %> 
-					</div>
-
-					<div class="form-group">
-						<%= f.label :society %>
-						<%= f.text_field :society, class: 'form-control' %> 
-					</div>
-
-					<div class="form-group">
-						<%= f.label :release_date %>
-						<%= f.date_select :release_date, class: 'form-control' %> 
-					</div>
+			  <%= f.button :submit %>
 
 				</div>
 			</div>
 		<% end %>
-
+		
+	</div>
 </div>

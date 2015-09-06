@@ -17,7 +17,9 @@ class ReleasesController < ApplicationController
 	end
 
 	def create
+		@release = Release.create(release_params)
 		@release.save # do save with params
+		redirect_to current_user
 	end
 
 	def edit

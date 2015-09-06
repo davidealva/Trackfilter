@@ -17,3 +17,27 @@
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import url(https://fonts.googleapis.com/css?family=Raleway);
+
+
+body {
+	font-family: 'Raleway', sans-serif;
+}
+
+.jumbotron {
+	border-radius: 0px !important;
+	border: none;
+}
+
+.well {
+	border-radius: 0px !important;
+	border: none;
+}
+
+.form-control {
+  border-radius: 0px !important
+}
+
+.btn {
+	border-radius: 0px !important
+}
