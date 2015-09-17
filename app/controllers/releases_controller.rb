@@ -19,7 +19,7 @@ class ReleasesController < ApplicationController
 	def create
 		@release = Release.create(release_params)
 		@release.save # do save with params
-		redirect_to current_user
+		redirect_to static_artist_path(current_user)
 	end
 
 	def edit

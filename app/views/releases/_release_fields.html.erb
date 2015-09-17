@@ -1,0 +1,12 @@
+<div>
+	<%= image_tag @release.cover.url(:medium) %>
+	<%= f.input :cover, as: :file , hint: 'Image (min 500x500px)'%>
+
+	<%= f.input :title %> 
+	<%= f.input :description %> 
+	<%= f.input :price, as: :decimal %> 
+	<%= f.input :credits %> 
+	<%= f.input :publisher_name %> 
+	<%= f.input :society, hint: 'i.e. ASCAP, BMI, GEMA' %> 
+	<%= f.input :release_date, as: :date, start_year: Date.today.year %> 	
+</div>

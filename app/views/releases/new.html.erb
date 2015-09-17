@@ -1,37 +1,46 @@
 <div class="row">
 	<div class="col-md-10 col-md-offset-1">
-		<!-- <%= link_to 'Add Track', new_artist_tracks_path(@user), class: 'btn btn-warning' %> -->
-
 		<%= simple_form_for @release, url: artist_releases_path, html: { class: 'form-horizontal' } do |f|  %>
 		
 			<div class="row">
 				<div class="col-md-4">
 					<h3>Create a new release</h3>
-						<%= f.input :title %> 
-						<%= f.input :description %> 
-						<%= f.input :price, as: :decimal %> 
-						<%= f.input :credits %> 
-						<%= f.input :publisher_name %> 
-						<%= f.input :society, hint: 'i.e. ASCAP, BMI, GEMA' %> 
-						<%= f.input :release_date, as: :date, start_year: Date.today.year %> 
+						<div class="release">
+						<% if @release.cover.url.blank? %>
+							<%= image_tag("http://placehold.it/250x250") %>
+						<% else %>
+							<%= image_tag @release.cover.url(:medium) %>
+						<% end %>
+							<%= f.input :cover, as: :file , hint: 'Image (min 500x500px)'%>
+							<%= f.input :title %> 
+							<%= f.input :description %> 
+							<%= f.input :price, as: :decimal %> 
+							<%= f.input :credits %> 
+							<%= f.input :publisher_name %> 
+							<%= f.input :society, hint: 'i.e. ASCAP, BMI, GEMA' %> 
+							<%= f.input :release_date, as: :date, start_year: Date.today.year %> 
+						</div>
 				</div>
 
 				<div class="col-md-4 col-md-offset-2">
 					<h3>Add Tracks</h3>
 					<div id="tracks">
-				    <%= f.simple_fields_for :tracks do |track| %>
-				      <%= render 'track_fields', f: track %>
+				    <%= f.simple_fields_for :tracks do |t| %>
+				      <div class="nested-fields">
+							  <%= t.input :title %>
+							  <%= t.input :remixer %>
+							  <%= t.input :price %>
+							</div>
+							<%= link_to_remove_association "remove track", f %>
 				    <% end %>
 				  </div>
+
 					<div class="links">
 			      <%= link_to_add_association 'add track', f, :tracks %>
 			    </div>
-
-			  <%= f.button :submit %>
-
+			  	<%= f.button :submit %>
 				</div>
 			</div>
-		<% end %>
-		
+		<% end %>	
 	</div>
 </div>

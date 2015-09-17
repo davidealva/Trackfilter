@@ -17,7 +17,8 @@ gem 'stripe'
 gem "figaro"
 gem 'simple_form'
 gem 'cocoon'
-
+gem 'aws-sdk', '~> 1.6'
+gem 'transloadit-rails'
 
 group :production do 
 	gem 'pg'

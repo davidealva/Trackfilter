@@ -1,8 +1,9 @@
 <%= form_for @profile, url: user_profile_path, :html => { :multipart => true } do |f| %>
 
 	<div class="row">
-		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+		<div class="col-md-6">
 			<div class="form-group">
+			  <%= image_tag @profile.avatar.url(:medium) %>
 				<%= f.label :avatar, 'Image (min 500x500px)' %>
 				<%= f.file_field :avatar %>
 			</div>
@@ -37,7 +38,7 @@
 			</div>
 		</div>
 
-		<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+		<div class="col-md-6">
 			<div class="form-group">
 				<%= f.label :genre %>
 				<%= f.text_field :genre, class: 'form-control' %> 
